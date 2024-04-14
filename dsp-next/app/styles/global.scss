@@ -1,0 +1,34 @@
+// color
+$dark1: #282828;
+$dark2: #4d4d4d;
+$dark3: #666;
+$dark4: #dcdcdc;
+$navy: #1D376D;
+$blue: #7BADD3;
+$blue-dark: #0069b1;
+$skyblue: #578ED9;
+
+//space
+$d0: 4px;
+$d1: 8px;
+$d2: 16px;
+$d3: 24px;
+$d4: 32px;
+$d5: 40px;
+$d6: 48px;
+$d7: 56px;
+$d8: 64px;
+$d9: 72px;
+$d10: 80px;
+
+// メディアクエリ
+$breakpoint: (sp: 'screen and (max-width: 767px)',
+  tab: 'screen and (max-width: 1024px)',
+  pc: 'screen and (min-width: 1025px)'
+);
+
+@mixin mq($bp) {
+  @media #{map-get($breakpoint, $bp)} {
+    @content;
+  }
+}
