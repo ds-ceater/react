@@ -53,13 +53,12 @@ export const Footer = () => {
     );
   }
 
-if (typeof window !== 'undefined') {
+// if (typeof window !== 'undefined') {
 
   if (typeof document !== 'undefined') {
     const animateFade = (entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          // console.log(entry.target);
           entry.target.animate(
             {
               opacity: [0, 1],
@@ -83,4 +82,4 @@ if (typeof window !== 'undefined') {
     });
   };
 
-};
+// };

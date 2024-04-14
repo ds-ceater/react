@@ -8,6 +8,8 @@ import { Header } from './components/Header'
 import { Footer } from './components/Footer'
 import { EB_Garamond } from "next/font/google";
 
+
+
 const garamond = EB_Garamond({
   subsets: ['latin'],
   display: 'swap',
