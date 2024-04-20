@@ -32,6 +32,7 @@ $navy: #1D376D;
 $blue: #7BADD3;
 $blue-dark: #0069b1;
 $skyblue: #578ED9;
+$red: rgba(255, 98, 163, 0.493);
 
 //space
 $d0: 4px;
@@ -217,69 +218,19 @@ p {
 }
 
 @mixin bganime {
-  overflow: hidden;
-  background-image:
-    radial-gradient(at 0% 0%, #fffeb1, transparent),
-    radial-gradient(at 50% 0%, #ffb1eb, transparent),
-    radial-gradient(at 0% 50%, #9cffb1, transparent),
-    radial-gradient(at 50% 50%, #75a1ff, transparent);
-  background-attachment: fixed;
-  background-size: 100% 100%;
-  animation: bggradient 30s linear infinite alternate;
+  background: linear-gradient(250deg, $blue 7%, $red 98%);
+  background-size: 400% 400%;
+  animation: bggradient 12s ease infinite;
   
-
-
-
-
   @keyframes bggradient {
     0% {
-      background-image:
-        radial-gradient(at 0% 0%, #c7ffb1, transparent),
-        radial-gradient(at 100% 0%, #ffb1cf, transparent),
-        radial-gradient(at 0% 100%, #75a1ff, transparent),
-        radial-gradient(at 100% 100%, #ffadad, transparent);
-        transform:rotateZ(0);
+      background-position: 0% 50%;
     }
-
-    20% {
-      background-image:
-        radial-gradient(at 0% 0%, #b1fff5, transparent),
-        radial-gradient(at 100% 0%, #ffb1cf, transparent),
-        radial-gradient(at 0% 100%, #75ffba, transparent),
-        radial-gradient(at 100% 100%, #ffadff, transparent);
-
+    50% {
+      background-position: 100% 50%;
     }
-
-    40% {
-      background-image:
-        radial-gradient(at 0% 0%, #b1b9ff, transparent),
-        radial-gradient(at 100% 0%, #ffbab1, transparent),
-        radial-gradient(at 0% 100%, #ffa875, transparent),
-        radial-gradient(at 100% 100%, #adadff, transparent);
-    }
-
-    60% {
-      background-image:
-        radial-gradient(at 0% 0%, #d3b1ff, transparent),
-        radial-gradient(at 100% 0%, #ffe4b1, transparent),
-        radial-gradient(at 0% 100%, #ff75c6, transparent),
-        radial-gradient(at 100% 100%, #adffad, transparent);
-    }
-
-    80% {
-      background-image:
-        radial-gradient(at 0% 0%, #ffb1f5, transparent),
-        radial-gradient(at 100% 0%, #ffb1eb, transparent),
-        radial-gradient(at 0% 100%, #d875ff, transparent),
-        radial-gradient(at 100% 100%, #9cffb1, transparent);
-    }
-
     100% {
-      background-image:
-        radial-gradient(at 0% 0%, #c7ffb1, transparent),
-        radial-gradient(at 100% 0%, #ffb1cf, transparent),
-        radial-gradient(at 0% 100%, #75a1ff, transparent),
-        radial-gradient(at 100% 100%, #ffadad, transparent);
+      background-position: 0% 50%;
     }
   }
 }
