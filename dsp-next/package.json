@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@location-state/core": "^1.0.1",
+    "gsap": "^3.13.0",
     "next": "14.1.4",
     "nodemailer": "^6.9.13",
     "react": "^18",
