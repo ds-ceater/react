@@ -159,7 +159,7 @@ export default function Page() {
               <div className="skills_wrap">
               <div className="skills_blk fadein">
                 <div className="skills_blk-card">
-                  <div className="cardOwn card"><h1 className="cardOwnTtl">Coding</h1><p className="cardOwnText">Building websites and applications using code.</p></div>
+                    <div className="cardOwn card cardCoding"><h1 className="cardOwnTtl">Coding</h1><p className="cardOwnText">Building websites and applications using code.</p></div>
                 </div>
                 <div className="skills_blk-text">
                   <h1 className={`${garamond.className} ${"skills_blk-ttl"}`}>
@@ -182,7 +182,7 @@ export default function Page() {
               </div>
               <div className="skills_blk fadein">
                 <div className="skills_blk-card">
-                  <div className="cardOwn card"><h1 className="cardOwnTtl">Design</h1><p className="cardOwnText"> Creating user-friendly and aesthetically pleasing websites.</p></div>
+                    <div className="cardOwn card cardDesign"><h1 className="cardOwnTtl">Design</h1><p className="cardOwnText"> Creating user-friendly and aesthetically pleasing websites.</p></div>
                 </div>
                 <div className="skills_blk-text">
                   <h1 className={`${garamond.className} ${"skills_blk-ttl"}`}>
@@ -203,7 +203,7 @@ export default function Page() {
               </div>
               <div className="skills_blk fadein">
                 <div className="skills_blk-card">
-                  <div className="cardOwn card"><h1 className="cardOwnTtl">Movie</h1><p className="cardOwnText">Enhancing and arranging video footage into a final product.</p></div>
+                    <div className="cardOwn card cardMovie"><h1 className="cardOwnTtl">Movie</h1><p className="cardOwnText">Enhancing and arranging video footage into a final product.</p></div>
                 </div>
                 <div className="skills_blk-text">
                   <h1 className={`${garamond.className} ${"skills_blk-ttl"}`}>
@@ -222,7 +222,7 @@ export default function Page() {
               </div>
               <div className="skills_blk fadein">
                 <div className="skills_blk-card">
-                  <div className="cardOwn card"><h1 className="cardOwnTtl">Illust</h1><p className="cardOwnText">Crafting custom images and graphics for various media.</p></div>
+                    <div className="cardOwn card cardIllust"><h1 className="cardOwnTtl">Illust</h1><p className="cardOwnText">Crafting custom images and graphics for various media.</p></div>
                 </div>
                 <div className="skills_blk-text">
                   <h1 className={`${garamond.className} ${"skills_blk-ttl"}`}>
@@ -372,7 +372,7 @@ export default function Page() {
                   </Link>
                 </li>
               </ul>
-              <p className="works_caution">※その他の実績については別途資料がございますので、お申しつけくださいませ。</p>
+              <p className="works_caution">※そのほか多数の実績がございます。別途PDF形式の資料がございますので、必要な場合はお申しつけくださいませ。</p>
             </div>
           </div>
         </div>

@@ -121,7 +121,7 @@ p {
     border-bottom-color: rgba(255, 255, 255, 0.2);
 
     @include mq(sp) {
-      display:block;
+      display: block;
       max-width: 100vw;
       padding: 0;
       position: relative;
@@ -138,6 +138,7 @@ p {
         width: 2rem;
       }
     }
+
     @include mq(sp) {
       position: absolute;
       top: 16px;
@@ -261,7 +262,100 @@ p {
 
 }
 
+// カードここから
 
+.cardWrapper {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+// SCSSのリスト変数で基本となる色相を定義
+$base-colors: (
+  // 9ed5ffの透明度を50%に
+  rgba(158, 213, 255, 0.5),
+  // E0916480の透明度をさらに下げる（元の0.5から0.3に）
+  rgba(224, 145, 100, 0.3),
+  // A482DD80の透明度をさらに下げる（元の0.5から0.3に）
+  rgba(164, 130, 221, 0.3),
+  // ff84b77eの透明度をさらに下げる（元の0.5から0.3に）
+  rgba(255, 132, 183, 0.3)
+);
+
+// カードごとに色相をずらしてアニメーションを適用
+@for $i from 1 through length($base-colors) {
+  .cardOwn:nth-of-type(#{$i}) {
+    // 基本となる色
+    $start-color: nth($base-colors, $i);
+    // 色相をずらした終了色
+    $end-color: adjust-hue($start-color, 90deg);
+
+    background: linear-gradient(250deg, $start-color 12%, $end-color 98%);
+    background-size: 400% 400%;
+    animation: cardGradient 4s ease infinite;
+
+    @keyframes cardGradient {
+      0% {
+        background-position: 0% 50%;
+      }
+
+      50% {
+        background-position: 100% 50%;
+      }
+
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+  }
+}
+
+.cardOwn {
+  position: absolute;
+  width: 24vw *0.7;
+  height: 32vw*0.7;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 1.2rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  padding: $d3;
+
+  @include mq(sp) {
+    width: 30vw;
+    height: 40vw;
+    padding: $d1;
+  }
+
+  &Ttl {
+    font-size: 2rem;
+    margin-bottom: $d2;
+    text-align: left;
+
+    @include mq(sp) {
+      font-size: 1rem;
+    }
+
+  }
+
+  &Text {
+    font-size: 1rem;
+    line-height: 1.5;
+
+    @include mq(sp) {
+      font-size: 0.7rem;
+    }
+  }
+
+}
+
+//　カードここまで
 
 .container {
   .btn {
@@ -343,23 +437,6 @@ p {
           transform: translateX(0);
         }
       }
-
-      // @keyframes MoveRight {
-      //   from {
-      //     transform: translateX(100%);
-      //   }
-      //   to {
-      //     transform: translateX(-100%);
-      //   }  
-      // }
-      // @keyframes MoveRight2 {
-      //   from {
-      //     transform: translateX(0);
-      //   }
-      //   to {
-      //     transform: translateX(-200%);
-      //   }  
-      // }
     }
 
     &_contents {
@@ -580,6 +657,40 @@ p {
       }
 
       &-card {
+        // カードのクラス名と色のペアをマップで定義
+          $card-colors: (
+            cardCoding: rgba(158, 213, 255, 0.5),
+            cardDesign: rgba(224, 145, 100, 0.3),
+            cardMovie: rgba(164, 130, 221, 0.3),
+            cardIllust: rgba(255, 132, 183, 0.3)
+          );
+        
+        // @eachループを使って、マップの各ペアを処理
+        @each $class, $start-color in $card-colors {
+          .#{$class} {
+            // 色相をずらした終了色
+            $end-color: adjust-hue($start-color, 90deg);
+        
+            background: linear-gradient(250deg, $start-color 12%, $end-color 98%);
+            background-size: 400% 400%;
+            animation: cardGradient 4s ease infinite;
+          }
+        }
+        
+        // @keyframesは一度だけ定義すればOK
+        @keyframes cardGradient {
+          0% {
+            background-position: 0% 50%;
+          }
+        
+          50% {
+            background-position: 100% 50%;
+          }
+        
+          100% {
+            background-position: 0% 50%;
+          }
+        }
         .cardOwn {
           position: static;
           width: 10vw;
@@ -589,7 +700,6 @@ p {
           @include mq(sp) {
             width: 40vw;
             height: 52vw;
-
           }
 
           &Ttl {
@@ -599,6 +709,14 @@ p {
           &Text {
             font-size: 0.8rem;
           }
+
+          &.cardCoding {}
+
+          &.cardDesign {}
+
+          &.cardMovie {}
+
+          &.cardIllust {}
         }
       }
 
@@ -632,6 +750,7 @@ p {
       justify-content: space-between;
       gap: $d8 $d1;
     }
+
     figure {
       text-align: center;
     }
@@ -852,100 +971,6 @@ p {
   z-index: 1;
   /* name_wrapより低いz-indexを設定 */
 }
-
-
-
-.cardWrapper {
-  position: relative;
-  width: 100%;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-// SCSSのリスト変数で基本となる色相を定義
-$base-colors: (
-  // 9ed5ffの透明度を50%に
-  rgba(158, 213, 255, 0.5),
-  // E0916480の透明度をさらに下げる（元の0.5から0.3に）
-  rgba(224, 145, 100, 0.3),
-  // A482DD80の透明度をさらに下げる（元の0.5から0.3に）
-  rgba(164, 130, 221, 0.3),
-  // ff84b77eの透明度をさらに下げる（元の0.5から0.3に）
-  rgba(255, 132, 183, 0.3)
-);
-
-// カードごとに色相をずらしてアニメーションを適用
-@for $i from 1 through length($base-colors) {
-  .cardOwn:nth-of-type(#{$i}) {
-    // 基本となる色
-    $start-color: nth($base-colors, $i);
-    // 色相をずらした終了色
-    $end-color: adjust-hue($start-color, 90deg);
-
-    background: linear-gradient(250deg, $start-color 12%, $end-color 98%);
-    background-size: 400% 400%;
-    animation: cardGradient 4s ease infinite;
-
-    @keyframes cardGradient {
-      0% {
-        background-position: 0% 50%;
-      }
-
-      50% {
-        background-position: 100% 50%;
-      }
-
-      100% {
-        background-position: 0% 50%;
-      }
-    }
-  }
-}
-
-.cardOwn {
-  position: absolute;
-  width: 24vw *0.7;
-  height: 32vw*0.7;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  color: white;
-  font-size: 1.2rem;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  border-radius: 8px;
-  padding: $d3;
-
-  @include mq(sp) {
-    width: 30vw;
-    height: 40vw;
-    padding: $d1;
-  }
-
-  &Ttl {
-    font-size: 2rem;
-    margin-bottom: $d2;
-    text-align: left;
-
-    @include mq(sp) {
-      font-size: 1rem;
-    }
-
-  }
-
-  &Text {
-    font-size: 1rem;
-    line-height: 1.5;
-
-    @include mq(sp) {
-      font-size: 0.7rem;
-    }
-  }
-
-}
-
 
 .footer {
   background-color: $dark4;

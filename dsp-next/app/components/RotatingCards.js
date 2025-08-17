@@ -81,8 +81,8 @@ export const RotatingCards = () => {
     <>
       <div className="rotating-cards-container">
         <div ref={containerRef} className="cardWrapper">
-          <div className="cardOwn card"><h1 className="cardOwnTtl">Design</h1><p className="cardOwnText"> Creating user-friendly and aesthetically pleasing websites.</p></div>
           <div className="cardOwn card"><h1 className="cardOwnTtl">Coding</h1><p className="cardOwnText">Building websites and applications using code.</p></div>
+          <div className="cardOwn card"><h1 className="cardOwnTtl">Design</h1><p className="cardOwnText"> Creating user-friendly and aesthetically pleasing websites.</p></div>
           <div className="cardOwn card"><h1 className="cardOwnTtl">Movie</h1><p className="cardOwnText">Enhancing and arranging video footage into a final product.</p></div>
           <div className="cardOwn card"><h1 className="cardOwnTtl">Illust</h1><p className="cardOwnText">Crafting custom images and graphics for various media.</p></div>
           {/* 他のカード要素 */}

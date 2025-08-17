@@ -52,7 +52,7 @@ export default function Page() {
                 />
               </div>
               <div className="detail_contents">
-                <p className="detail_comment">APIで画像を取得し、ページングする機能を作成しました。
+                <p className="detail_comment">APIで画像を取得し、ライブラリ「react-paginate」によってページングする機能を作成しました。
                 </p>
                 <div className="detail_desc">
                   <div className="detail_box">

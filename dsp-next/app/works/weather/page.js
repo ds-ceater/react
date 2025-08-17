@@ -53,7 +53,7 @@ export default function Page() {
               </div>
               <div className="detail_contents">
               <p className="detail_comment">参考書を元に、都市名を入力するとAPIで天気の情報を表示するアプリを制作しました。<br />
-              元のアプリにはない、ダークモード切替、検索履歴表示、気温変化グラフ表示
+              元のアプリにはない、ダークモード切替、検索履歴表示、Chart.jsによる気温変化グラフ表示
               機能も追加しました。
               </p>
               <div className="detail_desc">
