@@ -30,12 +30,12 @@ $dark3: #d8d8d8;
 $dark4: #fafafa;
 $navy: #1D376D;
 $blue: #9ed5ff;
-$blue-dark: #0069b1;
+$blue-dark: darken($blue, 20%);
 $skyblue: #578ED9;
 $red: rgba(255, 132, 183, 0.493);
 $red: #ff84b77e;
+$red-dark: darken($red, 20%);
 $red100: #ffa9cd;
-
 
 //space
 $d0: 4px;
@@ -116,7 +116,7 @@ p {
     margin: 0 auto;
     padding: $d3 6rem;
     backdrop-filter: blur(20px);
-    // border: 1px solid rgba(255, 255, 255, 0.4);
+    border: 1px solid rgba(66, 66, 66, 0.4);
     border-right-color: rgba(255, 255, 255, 0.2);
     border-bottom-color: rgba(255, 255, 255, 0.2);
 
@@ -250,7 +250,7 @@ p {
     }
 
     &_item {
-      font-size: 1.5rem;
+      font-size: 1rem;
       list-style: none;
 
       @include mq(sp) {
@@ -261,6 +261,39 @@ p {
   }
 
 }
+
+.fadeIn {
+  opacity:  0;
+  transform: translateY(50px);
+  &.is-active {
+    opacity: 1;
+    transform: translateY(0);
+    transition: all 1s cubic-bezier(0.23, 1, 0.320, 1)
+  }
+}
+
+// 垂直線
+.bgGrid {
+  display: flex;
+  height: 100%;
+  position: absolute;
+  width: 100%;
+
+  &Line {
+    border-right: 1px solid #ffffff41;
+    height: 100%;
+    width: 20%;
+  }
+
+  &Gray {
+    .bgGridLine {
+      border-right: 1px solid #d4d4d43d;
+      height: 100%;
+      width: 20%;
+    }
+  }
+}
+
 
 // カードここから
 
@@ -455,7 +488,7 @@ $base-colors: (
       &_wrap {
         font-weight: normal;
         position: absolute;
-        top: 65%;
+        top: 70%;
         left: 50%;
         transform: translate(-50%, -50%);
         z-index: 2;
@@ -658,286 +691,284 @@ $base-colors: (
 
       &-card {
         // カードのクラス名と色のペアをマップで定義
-          $card-colors: (
-            cardCoding: rgba(158, 213, 255, 0.5),
-            cardDesign: rgba(224, 145, 100, 0.3),
-            cardMovie: rgba(164, 130, 221, 0.3),
-            cardIllust: rgba(255, 132, 183, 0.3)
-          );
-        
-        // @eachループを使って、マップの各ペアを処理
-        @each $class, $start-color in $card-colors {
-          .#{$class} {
-            // 色相をずらした終了色
-            $end-color: adjust-hue($start-color, 90deg);
-        
-            background: linear-gradient(250deg, $start-color 12%, $end-color 98%);
-            background-size: 400% 400%;
-            animation: cardGradient 4s ease infinite;
-          }
-        }
-        
-        // @keyframesは一度だけ定義すればOK
-        @keyframes cardGradient {
-          0% {
-            background-position: 0% 50%;
-          }
-        
-          50% {
-            background-position: 100% 50%;
-          }
-        
-          100% {
-            background-position: 0% 50%;
-          }
-        }
-        .cardOwn {
-          position: static;
-          width: 10vw;
-          height: 13vw;
-          padding: $d1;
+        $card-colors: (
+          cardCoding: rgba(158, 213, 255, 0.5),
+          cardDesign: rgba(224, 145, 100, 0.3),
+          cardMovie: rgba(164, 130, 221, 0.3),
+          cardIllust: rgba(255, 132, 183, 0.3)
+        );
 
-          @include mq(sp) {
-            width: 40vw;
-            height: 52vw;
-          }
+      // @eachループを使って、マップの各ペアを処理
+      @each $class, $start-color in $card-colors {
+        .#{$class} {
+          // 色相をずらした終了色
+          $end-color: adjust-hue($start-color, 90deg);
 
-          &Ttl {
-            font-size: 1.5rem;
-          }
-
-          &Text {
-            font-size: 0.8rem;
-          }
-
-          &.cardCoding {}
-
-          &.cardDesign {}
-
-          &.cardMovie {}
-
-          &.cardIllust {}
+          background: linear-gradient(250deg, $start-color 12%, $end-color 98%);
+          background-size: 400% 400%;
+          animation: cardGradient 4s ease infinite;
         }
       }
 
-      &-ttl {
-        margin-bottom: $d3;
-        font-size: 2rem;
+      // @keyframesは一度だけ定義すればOK
+      @keyframes cardGradient {
+        0% {
+          background-position: 0% 50%;
+        }
+
+        50% {
+          background-position: 100% 50%;
+        }
+
+        100% {
+          background-position: 0% 50%;
+        }
+      }
+
+      .cardOwn {
+        position: static;
+        width: 10vw;
+        height: 13vw;
+        padding: $d1;
 
         @include mq(sp) {
-          font-size: 1.8rem;
+          width: 40vw;
+          height: 52vw;
+        }
+
+        &Ttl {
+          font-size: 1.2rem;
+          margin-bottom: $d0;
+        }
+
+        &Text {
+          font-size: 0.8rem;
         }
       }
+    }
 
-      &-contents {
-        margin-bottom: $d2;
+    &-ttl {
+      margin-bottom: $d3;
+      font-size: 2rem;
+
+      @include mq(sp) {
+        font-size: 1.8rem;
       }
+    }
 
-      &-tools {
-        font-size: 1rem;
+    &-contents {
+      margin-bottom: $d2;
+    }
 
-        &-ttl {
-          padding-right: $d2;
-        }
+    &-tools {
+      font-size: 1rem;
+
+      &-ttl {
+        padding-right: $d2;
       }
     }
   }
+}
 
-  .works {
-    &_list {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      gap: $d8 $d1;
+.works {
+  &_list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: $d8 $d1;
+  }
+
+  figure {
+    text-align: center;
+  }
+
+  img {
+    margin-bottom: $d2;
+    filter: drop-shadow(0px 0px 2px $dark3);
+    max-height: 245px;
+    width: auto;
+  }
+
+  &_item {
+    display: flex;
+    flex-direction: column;
+    width: 45%;
+
+    &-job {
+      font-size: 0.8rem;
+      margin-bottom: $d1;
+
+      @include mq(sp) {
+        font-size: 0.7rem;
+      }
+
     }
 
-    figure {
-      text-align: center;
-    }
-
-    img {
+    &-ttl {
+      font-size: 1.2rem;
       margin-bottom: $d2;
-      filter: drop-shadow(0px 0px 2px $dark3);
-      max-height: 245px;
-      width: auto;
+      flex-grow: 1;
+
+      @include mq(sp) {
+        font-size: 0.9rem;
+        word-break: auto-phrase;
+      }
     }
 
-    &_item {
-      display: flex;
-      flex-direction: column;
-      width: 45%;
+    .btn {
+      margin-top: auto;
+      @include bganime();
+      &:hover {
+        background: linear-gradient(250deg, $blue-dark 7%, $red-dark 98%);
+      }
+    }
 
-      &-job {
+  }
+
+  &_caution {
+    margin-top: $d4;
+    font-size: 1rem;
+    padding-left: 1em;
+    text-indent: -1em;
+  }
+}
+
+.detail {
+  &_info {
+    margin-bottom: $d3;
+
+    .info {
+      &_list {
+        display: flex;
         font-size: 0.8rem;
         margin-bottom: $d1;
-
-        @include mq(sp) {
-          font-size: 0.7rem;
-        }
-
       }
 
-      &-ttl {
-        font-size: 1.2rem;
-        margin-bottom: $d2;
-        flex-grow: 1;
-
-        @include mq(sp) {
-          font-size: 0.9rem;
-          word-break: auto-phrase;
-        }
+      &_ttl {
+        margin-right: $d2;
       }
-
-      .btn {
-        margin-top: auto;
-      }
-
-    }
-
-    &_caution {
-      margin-top: $d4;
-      font-size: 1rem;
-      padding-left: 1em;
-      text-indent: -1em;
     }
   }
 
-  .detail {
-    &_info {
-      margin-bottom: $d3;
+  &_mock {
+    background-color: $dark4;
+    padding: $d4;
+    display: grid;
+    margin-bottom: $d5;
+    place-content: center;
 
-      .info {
-        &_list {
-          display: flex;
-          font-size: 0.8rem;
-          margin-bottom: $d1;
-        }
-
-        &_ttl {
-          margin-right: $d2;
-        }
-      }
-    }
-
-    &_mock {
-      background-color: $dark4;
-      padding: $d4;
-      display: grid;
-      margin-bottom: $d5;
-      place-content: center;
-
-      &-pic {
-        max-width: 720px;
-
-        @include mq(sp) {
-          max-width: 300px;
-        }
-      }
-    }
-
-    &_contents {
-      margin: 0 auto;
+    &-pic {
       max-width: 720px;
 
+      @include mq(sp) {
+        max-width: 300px;
+      }
     }
+  }
 
-    &_comment {
+  &_contents {
+    margin: 0 auto;
+    max-width: 720px;
+
+  }
+
+  &_comment {
+    font-size: 1rem;
+    line-height: 1.7;
+    margin: 0 auto $d5;
+
+  }
+
+  &_box {
+    display: flex;
+    margin-bottom: $d6;
+
+    &-ttl {
       font-size: 1rem;
-      line-height: 1.7;
-      margin: 0 auto $d5;
+      font-weight: bold;
+      width: 200px;
 
+      @include mq(sp) {
+        width: 100px;
+      }
     }
 
-    &_box {
-      display: flex;
-      margin-bottom: $d6;
-
-      &-ttl {
-        font-size: 1rem;
-        font-weight: bold;
-        width: 200px;
+    &-text {
+      &Wrap {
+        width: calc(100% - 200px);
 
         @include mq(sp) {
-          width: 100px;
+          width: calc(100% - 100px);
         }
       }
 
-      &-text {
-        &Wrap {
-          width: calc(100% - 200px);
+      font-size: 1rem;
 
-          @include mq(sp) {
-            width: calc(100% - 100px);
-          }
-        }
-
-        font-size: 1rem;
-
-      }
     }
+  }
 
-    &_point {
-      &-contents {
-        &-wrap {
-          margin-bottom: $d10;
+  &_point {
+    &-contents {
+      &-wrap {
+        margin-bottom: $d10;
 
-          &:nth-child(odd) {
-            .detail_point-contents {
-              flex-direction: row-reverse;
+        &:nth-child(odd) {
+          .detail_point-contents {
+            flex-direction: row-reverse;
 
-              @include mq(sp) {
-                flex-direction: column;
-              }
+            @include mq(sp) {
+              flex-direction: column;
             }
           }
         }
-
-        display: flex;
-        align-items: center;
-        gap: $d3;
-
-        @include mq(sp) {
-          flex-direction: column;
-        }
-
-        &-ttl {
-          font-size: 2rem;
-          margin-bottom: $d5;
-        }
       }
 
-      &-pic {
-        &-wrap {
-          background-color: $dark4;
-          // margin-right: $d4;
-          width: 260px;
-          height: 260px;
-          display: grid;
-          place-content: center;
-          padding: $d1;
-          aspect-ratio: 1 / 1;
+      display: flex;
+      align-items: center;
+      gap: $d3;
 
-          @include mq(sp) {
-            width: 80%;
-            height: auto;
-            margin: 0 auto $d2;
-          }
-        }
-
-        margin: 0 auto;
+      @include mq(sp) {
+        flex-direction: column;
       }
 
       &-ttl {
-        font-size: 3rem;
-        margin-bottom: $d3;
+        font-size: 2rem;
+        margin-bottom: $d5;
       }
-
-      &-text {
-        font-size: 1rem;
-      }
-
     }
+
+    &-pic {
+      &-wrap {
+        background-color: $dark4;
+        // margin-right: $d4;
+        width: 260px;
+        height: 260px;
+        display: grid;
+        place-content: center;
+        padding: $d1;
+        aspect-ratio: 1 / 1;
+
+        @include mq(sp) {
+          width: 80%;
+          height: auto;
+          margin: 0 auto $d2;
+        }
+      }
+
+      margin: 0 auto;
+    }
+
+    &-ttl {
+      font-size: 3rem;
+      margin-bottom: $d3;
+    }
+
+    &-text {
+      font-size: 1rem;
+    }
+
   }
+}
 }
 
 .contact {
@@ -965,7 +996,7 @@ $base-colors: (
 
 .rotating-cards-container {
   position: absolute;
-  top: 40%;
+  top:40%;
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 1;

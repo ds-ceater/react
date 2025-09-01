@@ -50,7 +50,7 @@ export const RotatingCards = () => {
 
     // タイムラインを作成
     const tl = gsap.timeline({
-      delay: 5,
+      delay: 2.5,
       // `onComplete`でフェードイン完了後に回転を開始
       onComplete: () => {
         gsap.to(cards, {

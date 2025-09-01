@@ -10,7 +10,6 @@ import { Header } from './components/Header'
 import { Footer } from './components/Footer'
 import { RotatingCards } from './components/RotatingCards'
 import { EB_Garamond } from "next/font/google";
-
 const garamond = EB_Garamond({
   subsets: ['latin'],
   display: 'swap',
@@ -96,13 +95,16 @@ export default function Page() {
       <section>
         <Header />
         <div className="top">
+          <div className="bgGrid">
+            <span className="bgGridLine"></span><span className="bgGridLine"></span><span className="bgGridLine"></span><span className="bgGridLine"></span>
+          </div>
           <RotatingCards />
           <div className="top_contents">
             <div className={`${garamond.className} ${"name_wrap"}`}>
-              <h1 className="name_comment js-text">Welcome to</h1>
-              <h1 className="name_job js-text">WEB DEVELOPER</h1>
+              {/* <h1 className="name_comment js-text">Welcome to</h1> */}
+              <h1 className="name_job js-text">CREATIVE TECHNOLOGIST</h1>
               <h1 className="name_name js-text">DAICHI SASAKI</h1>
-              <h1 className="name_title js-text">PORTFOLIO</h1>
+              {/* <h1 className="name_title js-text">PORTFOLIO</h1> */}
             </div>
           </div>
 
@@ -115,6 +117,9 @@ export default function Page() {
       </section>
       <section>
         <div className="about section_wrap" id="about">
+          <div className="bgGrid bgGridGray">
+            <span className="bgGridLine"></span><span className="bgGridLine"></span><span className="bgGridLine"></span><span className="bgGridLine"></span>
+          </div>
           <div className="section_inner">
             <h1 className="section_ttl fadein">
               <span className={`${garamond.className} ${"section_ttl-en"}`}>
@@ -136,10 +141,11 @@ export default function Page() {
                   className="about_box-pic"
                 />
                 <p className="about_box-text section_text">
-                  広島県出身。販売・事務等を経て、デジタルで物を創る面白さ、将来性に惹かれ、2015年10月よりWeb制作会社に勤務。
+                  2015年10月よりWebデザイン、コーディング業務を開始。
                   <br />
                   コーポレートサイト、ランディングページ、ECサイトの更新・運営などを経験。
-                  案件に応じてデザイン、コーディング、ディレクションを担当。
+                  案件に応じてデザイン、コーディング、ディレクションを担当。<br />
+                  DTPデザイン、映像編集、イラスト制作も可能。
                 </p>
               </div>
             </div>
@@ -148,6 +154,9 @@ export default function Page() {
       </section>
       <section>
         <div className="skills section_wrap" id="skills">
+          <div className="bgGrid">
+            <span className="bgGridLine"></span><span className="bgGridLine"></span><span className="bgGridLine"></span><span className="bgGridLine"></span>
+          </div>
           <div className="section_inner">
             <h1 className="section_ttl fadein">
               <span className={`${garamond.className} ${"section_ttl-en"}`}>
@@ -157,88 +166,88 @@ export default function Page() {
             </h1>
             <div className="section_contents">
               <div className="skills_wrap">
-              <div className="skills_blk fadein">
-                <div className="skills_blk-card">
+                <div className="skills_blk fadein">
+                  <div className="skills_blk-card">
                     <div className="cardOwn card cardCoding"><h1 className="cardOwnTtl">Coding</h1><p className="cardOwnText">Building websites and applications using code.</p></div>
+                  </div>
+                  <div className="skills_blk-text">
+                    <h1 className={`${garamond.className} ${"skills_blk-ttl"}`}>
+                      Web Development
+                    </h1>
+                    <p className="skills_blk-contents section_text">
+                      HTML・CSS(Sass)を用いてデザインをWebサイトとして構築します。
+                      <br />
+                      環境に応じて、JavaScript、PHP、WordPress、React、Next.jsなどの言語やフレームワークに対応します。
+                      <br />
+                      日々キャッチアップを進めます。
+                    </p>
+                    <p className="skills_blk-tools">
+                      <span className="skills_blk-tools-ttl">Tools:</span>
+                      <span className="skills_blk-tools-name">
+                        Visual Studio Code
+                      </span>
+                    </p>
+                  </div>
                 </div>
-                <div className="skills_blk-text">
-                  <h1 className={`${garamond.className} ${"skills_blk-ttl"}`}>
-                    Web Development
-                  </h1>
-                  <p className="skills_blk-contents section_text">
-                    HTML・CSS(Sass)を用いてデザインをWebサイトとして構築します。
-                    <br />
-                    環境に応じて、JavaScript、PHP、WordPress、React、Next.jsなどの言語やフレームワークに対応します。
-                    <br />
-                    日々キャッチアップを進めます。
-                  </p>
-                  <p className="skills_blk-tools">
-                    <span className="skills_blk-tools-ttl">Tools:</span>
-                    <span className="skills_blk-tools-name">
-                      Visual Studio Code
-                    </span>
-                  </p>
-                </div>
-              </div>
-              <div className="skills_blk fadein">
-                <div className="skills_blk-card">
+                <div className="skills_blk fadein">
+                  <div className="skills_blk-card">
                     <div className="cardOwn card cardDesign"><h1 className="cardOwnTtl">Design</h1><p className="cardOwnText"> Creating user-friendly and aesthetically pleasing websites.</p></div>
+                  </div>
+                  <div className="skills_blk-text">
+                    <h1 className={`${garamond.className} ${"skills_blk-ttl"}`}>
+                      Web Design
+                    </h1>
+                    <p className="skills_blk-contents section_text">
+                      Webサイトやバナーをデザインします。
+                      <br />
+                      まずご要望をしっかりとヒアリングし、目的を果たすために最適なデザインはどういったものかを把握し、導線を定めて制作します。
+                    </p>
+                    <p className="skills_blk-tools">
+                      <span className="skills_blk-tools-ttl">Tools:</span>
+                      <span className="skills_blk-tools-name">
+                        Figma,Photoshop,Illustrator
+                      </span>
+                    </p>
+                  </div>
                 </div>
-                <div className="skills_blk-text">
-                  <h1 className={`${garamond.className} ${"skills_blk-ttl"}`}>
-                    Web Design
-                  </h1>
-                  <p className="skills_blk-contents section_text">
-                    Webサイトやバナーをデザインします。
-                    <br />
-                    まずご要望をしっかりとヒアリングし、目的を果たすために最適なデザインはどういったものかを把握し、導線を定めて制作します。
-                  </p>
-                  <p className="skills_blk-tools">
-                    <span className="skills_blk-tools-ttl">Tools:</span>
-                    <span className="skills_blk-tools-name">
-                      Figma,Photoshop,Illustrator
-                    </span>
-                  </p>
-                </div>
-              </div>
-              <div className="skills_blk fadein">
-                <div className="skills_blk-card">
+                <div className="skills_blk fadein">
+                  <div className="skills_blk-card">
                     <div className="cardOwn card cardMovie"><h1 className="cardOwnTtl">Movie</h1><p className="cardOwnText">Enhancing and arranging video footage into a final product.</p></div>
+                  </div>
+                  <div className="skills_blk-text">
+                    <h1 className={`${garamond.className} ${"skills_blk-ttl"}`}>
+                      Movie
+                    </h1>
+                    <p className="skills_blk-contents section_text">
+                      動画編集も対応しております。Webサイトのトップ動画、結婚式のプロフィールムービーなどの制作実績があります。
+                    </p>
+                    <p className="skills_blk-tools">
+                      <span className="skills_blk-tools-ttl">Tools:</span>
+                      <span className="skills_blk-tools-name">
+                        AfterEffects,Premiere
+                      </span>
+                    </p>
+                  </div>
                 </div>
-                <div className="skills_blk-text">
-                  <h1 className={`${garamond.className} ${"skills_blk-ttl"}`}>
-                    Movie
-                  </h1>
-                  <p className="skills_blk-contents section_text">
-                    動画編集も対応しております。Webサイトのトップ動画、結婚式のプロフィールムービーなどの制作実績があります。
-                  </p>
-                  <p className="skills_blk-tools">
-                    <span className="skills_blk-tools-ttl">Tools:</span>
-                    <span className="skills_blk-tools-name">
-                      AfterEffects,Premiere
-                    </span>
-                  </p>
-                </div>
-              </div>
-              <div className="skills_blk fadein">
-                <div className="skills_blk-card">
+                <div className="skills_blk fadein">
+                  <div className="skills_blk-card">
                     <div className="cardOwn card cardIllust"><h1 className="cardOwnTtl">Illust</h1><p className="cardOwnText">Crafting custom images and graphics for various media.</p></div>
+                  </div>
+                  <div className="skills_blk-text">
+                    <h1 className={`${garamond.className} ${"skills_blk-ttl"}`}>
+                      Illust
+                    </h1>
+                    <p className="skills_blk-contents section_text">
+                      イラスト制作も行います。週刊少年漫画雑誌での受賞歴があり、漫画制作も可能です。似顔絵の制作実績もあります。
+                    </p>
+                    <p className="skills_blk-tools">
+                      <span className="skills_blk-tools-ttl">Tools:</span>
+                      <span className="skills_blk-tools-name">
+                        Illustrator,Clip Studio
+                      </span>
+                    </p>
+                  </div>
                 </div>
-                <div className="skills_blk-text">
-                  <h1 className={`${garamond.className} ${"skills_blk-ttl"}`}>
-                    Illust
-                  </h1>
-                  <p className="skills_blk-contents section_text">
-                    イラスト制作も行います。週刊少年漫画雑誌での受賞歴があり、漫画制作も可能です。似顔絵の制作実績もあります。
-                  </p>
-                  <p className="skills_blk-tools">
-                    <span className="skills_blk-tools-ttl">Tools:</span>
-                    <span className="skills_blk-tools-name">
-                      Illustrator,Clip Studio
-                    </span>
-                  </p>
-                </div>
-              </div>
               </div>
             </div>
           </div>
@@ -266,9 +275,6 @@ export default function Page() {
                   </figure>
                   <h3 className="works_item-job">デザイン/コーディング</h3>
                   <h1 className="works_item-ttl">THE軽井沢グルメ</h1>
-                  {/* <p className="btn">VIEW MORE</p>
-                  <Link href="/works/karuizawa" className="works_item-link">
-                  </Link> */}
                   <Link href="/works/karuizawa" className="btn">
                     VIEW MORE
                   </Link>
