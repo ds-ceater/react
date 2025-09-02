@@ -114,7 +114,7 @@ p {
     justify-content: space-between;
     align-items: center;
     margin: 0 auto;
-    padding: $d3 6rem;
+    padding: $d1 6rem;
     backdrop-filter: blur(20px);
     border: 1px solid rgba(66, 66, 66, 0.4);
     border-right-color: rgba(255, 255, 255, 0.2);
@@ -131,7 +131,7 @@ p {
 
   &_link {
     img {
-      width: 70px;
+      width: 32px;
       height: auto;
 
       @include mq(sp) {
